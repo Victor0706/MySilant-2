@@ -1,0 +1,56 @@
+
+
+{% block title %}
+Машина
+{% endblock title %}
+
+{% block content %}
+   <h1>{{ article.title }}</h1>
+
+   <hr>
+   {% if machine %}
+       <table>
+           <tr>
+               <th>Зав. № машины</th>
+               <th>Модель техники</th>
+               <th>Модель двигателя</th>
+               <th>Зав. № двигателя</th>
+               <th>Модель трансмиссии</th>
+               <th>Зав. № трансмиссии</th>
+               <th>Модель ведущего моста</th>
+               <th>Зав. № ведущего моста</th>
+               <th>Модель управляемого моста</th>
+               <th>Зав. № управляемого моста</th>
+               <th>Договор поставки №</th>
+               <th>Дата отгрузки с завода</th>
+               <th>Грузополучатель (конечный потребитель)</th>
+               <th>Адрес поставки (эксплуатации)</th>
+               <th>Комплектация (доп. опции)</th>
+               <th>Клиент</th>
+               <th>Сервисная компания</th>
+           </tr>
+           <tr>
+              <td>{{ machine.machine_number }}</td>
+               <td>{{ machine.model_of_equipment }}</td> 
+               <td>{{ machine.engine_model }}</td>
+               <td>{{ machine.engine_number }}</td>
+               <td>{{ machine.transmission_model }}</td>
+               <td>{{ machine.transmission_number }}</td>
+               <td>{{ machine.model_of_driving_axle }}</td>
+               <td>{{ machine.drive_axle_number }}</td>
+               <td>{{ machine.model_of_controlled_bridge }}</td>
+               <td>{{ machine.controlled_bridge_number }}</td>
+               <td>{{ machine.supply_contract_number }}</td>
+               <td>{{ machine.shipment_date }}</td>
+               <td>{{ machine.consignee }}</td>
+               <td>{{ machine.delivery_address }}</td>
+               <td>{{ machine.equipment }}</td>
+               <td>{{ machine.client }}</td>
+               <td>{{ machine.service_company }}</td>
+           </tr>
+
+       </table>
+   {% else %}
+       <h2>Машин нет!</h2>
+   {% endif %}
+{% endblock content %}

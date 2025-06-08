@@ -1,0 +1,45 @@
+.header {
+    height: 150px;
+    padding: 5px 100px;
+    background-color: grey;
+    border-radius: 5px;
+
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img {
+    height: 100px;
+    width: 100px;
+}
+
+.telephone {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.btn {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.book {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.book1 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}

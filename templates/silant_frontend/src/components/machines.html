@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .header { height: 150px; padding: 5px 100px; background-color: #D20A11; border-radius: 5px; }
+    .header2 { display: flex; justify-content: space-between; align-items: center; }
+    .img { height: 100px; width: 100px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .btn { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .book { display: flex; justify-content: space-between; align-items: center; }
+    .book1 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    .machines{ font-size: 10pt; text-align: center; }
+    table.machines th, table.machines td { border: black thin solid; }
+    .client { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px; }
+    .result { text-align: center; }
+    .info { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 40px; padding-left: 100px; padding-right: 100px; }
+    .tab { background-color: white; border-radius: 5px; }
+    .tab1 { border: black thin solid; border-radius: 5px; background-color: green; padding: 5px 10px; }
+    .tab2 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .tab2:hover { background-color: yellow; transition: 0.7s; }
+    .tab3 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .tab3:hover { background-color: yellow; transition: 0.7s; }
+    .info2 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px;
+    text-align: center; font-size: 20px; }
+    main { background-color: #163E6C; border-radius: 5px; }
+
+    .footer { display: flex; justify-content: space-between; align-items: center; height: 100px; margin-top: 20px; padding: 0 100px; background-color: #EBE6D6;
+    border-radius: 5px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .silant { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup:target { display: flex; }
+
+    .popup2 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content2 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup2:target { display: flex; }
+
+    .popup3 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content3 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup3:target { display: flex; }
+
+    .popup4 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content4 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup4:target { display: flex; }
+
+    .popup5 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content5 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup5:target { display: flex; }
+
+    .popup6 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content6 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup6:target { display: flex; }
+
+    .popup7 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content7 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup7:target { display: flex; }
+
+    @media (max-height: 910px) {.footer{ height: 60px;} .info2{height: 70px; font-size: 15px; 
+    padding-right: 0px;} .img{height: 70px; width: 70px; } .header{height:110px}}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машины</title>
+</head>
+<body>
+    <div>
+        <header>
+            <div class='header'>
+                <div class='header2'> 
+                  <img class='img' src="https://static.tildacdn.com/tild3665-3566-4466-b331-303564336361/Frame_12.png"></img>  
+                  <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                  <form action="http://127.0.0.1:8000/accounts/logout/">
+                    <button class='btn'>Выйти</button>
+                  </form>
+                </div>
+                <div class='book'>
+                  <p class='book1'>Электронная сервисная книжка "Мой Силант"</p>
+                </div>
+            </div>
+        </header>
+        <main>
+        <h1 class='client'>Клиент/Сервисная компания: {{ user.username }}</h1>
+        <div class='info2'>
+          <p>Информация о комплектации и технических</p>
+          <p>характеристиках Вашей техники</p>
+        </div>
+        <div class='tab'>
+        <p class='result'>Таблица с данными (выдача результата)</p>
+        <div class='info'>
+          <button class='tab1'>Таблица: общая информация о машинах</button> 
+          <form action="http://127.0.0.1:8000/api/maintenances">
+            <button class='tab2'>Таблица: техническое обслуживание</button>
+          </form>
+          <form action="http://127.0.0.1:8000/api/complaints">
+            <button class='tab3'>Таблица: рекламации</button>
+          </form>
+        </div>
+        <form action="" method="get">
+          {{ filterset.form.as_p }}
+          <input type="submit" value="Найти" />
+        </form>
+        {% if machines %}
+        <table class='machines'>
+          <thead>
+          <tr> 
+            <th>Зав. № машины</th>
+            <th>Модель техники</th>
+            <th>Модель двигателя</th>
+            <th>Зав. № двигателя</th>
+            <th>Модель трансмиссии</th>
+            <th>Зав. № трансмиссии</th>
+            <th>Модель ведущего моста</th>
+            <th>Зав. № ведущего моста</th>
+            <th>Модель управляемого моста</th>
+            <th>Зав. № управляемого моста</th>
+            <th>Договор поставки №</th>
+            <th>Дата отгрузки с завода</th>
+            <th>Грузополучатель (конечный потребитель)</th>
+            <th>Адрес поставки (эксплуатации)</th>
+            <th>Комплектация (доп. опции)</th>
+            <th>Клиент</th>
+            <th>Сервисная компания</th>
+          </tr>
+          </thead>
+          {% for machine in machines %}
+          <tbody>
+          <tr> 
+            <td>{{ machine.machine_number }}</td>
+            <td><a href="#popup">{{ machine.model_of_equipment }}</a>
+              <div id="popup" class="popup">
+                <div class="popup-content">
+                  <table>
+                    <tr>
+                      <th>ПД1,5</th>
+                      <th>ПД5,0</th>
+                      <th>ПД3,0</th>
+                      <th>ПД2,0</th>
+                      <th>ПД2,5</th>
+                      <th>ПГ1,5</th>
+                    </tr>
+                    <tr>
+                      <td>Дизельный погрузчик. Грузоподъемность 1500 кг.</td>
+                      <td>Дизельный погрузчик. Грузоподъемность - 5000 кг.</td>
+                      <td>Дизельный погрузчик. Грузоподъемность - 3000 кг.</td>
+                      <td>Дизельный погрузчик. Грузоподъемность - 2000 кг.</td>
+                      <td>Дизельный погрузчик. Грузоподъемность - 2500 кг.</td>
+                      <td>Бензиновый погрузчик. Грузоподъемность - 1500 кг.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>  
+            <td><a href="#popup2">{{ machine.engine_model }}</a>
+              <div id="popup2" class="popup2">
+                <div class="popup-content2">
+                  <table>
+                    <tr>
+                      <th>Kubota D1803</th>
+                      <th>ММЗ Д-243</th>
+                      <th>Kubota V3300</th>
+                      <th>Nissan K21</th>
+                      <th>MMZ-4D</th>
+                    </tr>
+                    <tr>
+                      <td>Высокотехнологичный двигатель от лидера мирового рынка Kubota выполнен при учете использования оригинальной технологии литья.</td>
+                      <td>Дизельный двигатель Д-243 производства Минского Моторного Завода (Белоруссия)</td>
+                      <td>Дизельный двигатель Kubota V3300 — это мощный и надежный четырехцилиндровый двигатель с жидкостным охлаждением.</td>
+                      <td>Бензиновый двигатель для погрузчиков</td>
+                      <td>Дизельный двигатель производства Минского Моторного Завода (Белоруссия)</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ machine.engine_number }}</td>
+            <td><a href="#popup3">{{ machine.transmission_model }}</a>
+              <div id="popup3" class="popup3">
+                <div class="popup-content3">
+                  <table>
+                    <tr>
+                      <th>10VA-00105</th>
+                      <th>HF50-VP020</th>
+                      <th>10VB-00106</th>
+                      <th>HF30-VP010</th>
+                    </tr>
+                    <tr>
+                      <td>Зав. № трансмиссии - 21D0108251</td>
+                      <td>Зав. № трансмиссии - 20H0066.</td>
+                      <td>Зав. № трансмиссии - 21K0116785.</td>
+                      <td>Зав. № трансмиссии - 22B0001</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ machine.transmission_number }}</td>
+            <td><a href="#popup4">{{ machine.model_of_driving_axle }}</a>
+              <div id="popup4" class="popup4">
+                <div class="popup-content4">
+                  <table>
+                    <tr>
+                      <th>20VA-00101</th>
+                      <th>HA50-VP010</th>
+                      <th>20VB-00102</th>
+                      <th>HA30-02020</th>
+                    </tr>
+                    <tr>
+                      <td>Зав. № ведущего моста - 21D0107997</td>
+                      <td>Зав. № ведущего моста - 20H0039</td>
+                      <td>Зав. № ведущего моста - 21K0115910</td>
+                      <td>Зав. № ведущего моста - 22B3364</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ machine.drive_axle_number }}</td>
+            <td><a href="#popup5">{{ machine.model_of_controlled_bridge }}</a>
+              <div id="popup5" class="popup5">
+                <div class="popup-content5">
+                  <table>
+                    <tr>
+                      <th>VS20-00001</th>
+                      <th>B350655A</th>
+                      <th>VS30-00001</th>
+                    </tr>
+                    <tr>
+                      <td>Зав. № управляемого моста - 21D0093265</td>
+                      <td>Зав. № управляемого моста - KDBAC9685</td>
+                      <td>Зав. № управляемого моста - 00070422</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ machine.controlled_bridge_number }}</td>
+            <td>{{ machine.supply_contract_number }}</td>
+            <td>{{ machine.shipment_date }}</td>
+            <td>{{ machine.consignee }}</td>
+            <td>{{ machine.delivery_address }}</td>
+            <td>{{ machine.equipment }}</td>
+            <td><a href="#popup6">{{ machine.client }}</a>
+              <div id="popup6" class="popup6">
+                <div class="popup-content6">
+                  <table>
+                    <tr>
+                      <th>ИП Трудников С.В.</th>
+                      <th>ООО "ФПК21"</th>
+                      <th>ООО "МНС77"</th>
+                      <th>ООО "ФПК21"</th>
+                      <th>ООО "Ранский ЛПХ"</th>
+                      <th>ООО "Комплект-Поставка"</th>
+                      <th>ООО "РМК"</th>
+                      <th>АО Зандер</th>
+                      <th>ООО "ФПК21"</th>
+                      <th>ООО "Комплект-Поставка"</th>
+                    </tr>
+                    <tr>
+                      <td>Грузополучатель - ИП Трудников С.В.</td>
+                      <td>Грузополучатель - ООО "ДЭТ №13"</td>
+                      <td>Грузополучатель - ООО "Мосгоррест"</td>
+                      <td>Грузополучатель - ФРП России</td>
+                      <td>Грузополучатель - ООО "Ранский ЛПХ"</td>
+                      <td>Грузополучатель - ООО "ГП СПБ"</td>
+                      <td>Грузополучатель - ФСН России</td>
+                      <td>Грузополучатель - АО Зандер</td>
+                      <td>Грузополучатель - АО "Т-Минус"</td>
+                      <td>Грузополучатель - ООО "ГП Краснодар"</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td><a href="#popup7">{{ machine.service_company }}</a>
+              <div id="popup7" class="popup7">
+                <div class="popup-content7">
+                  <table>
+                    <tr>
+                      <th>ООО Промышленная техника</th>
+                      <th>ООО Силант</th>
+                      <th>ООО ФНС</th>
+                    </tr>
+                    <tr>
+                      <td>Является официальным дилером по продаже и сервисному обслуживанию</td>
+                      <td>СИЛАНТ — российский бренд надежной техники Чебоксарского завода силовых агрегатов.</td>
+                      <td>Хороший сервис - наш доход.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="{% url 'machine_update' id=machine.id %}"><u><button type="submit"
+                  class="btn btn-primary">Редактировать информацию</button> </u></a>
+            </td>
+            <td>
+              <a href="{% url 'machine_delete' id=machine.id %}"><u><button type="submit"
+                  class="btn btn-primary">Удалить информацию</button> </u></a>
+            </td>
+          </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        {% else %}
+       <h2>Машин нет!</h2>
+       {% endif %}
+       <a href="{% url 'machine_create' %}"><u><button type="submit" class="btn btn-primary">Добавить новую машину</button> </u></a>
+        </div>
+        </main>
+        <footer>
+            <div class='footer'>
+                <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                <p class='silant'>Мой Силант 2022</p>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>
+
+
+      
+
+
+
+
+
+
+
+     
+       

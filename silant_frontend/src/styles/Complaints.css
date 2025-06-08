@@ -1,0 +1,85 @@
+.complaints {
+    font-size: 10pt;
+    text-align: center;
+    margin-left: 230px;
+}
+
+table.complaints th, table.complaints td {
+    border: black thin solid;
+    
+}
+
+.client {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.result {
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.tab {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.tab7 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.tab7:hover {
+    background-color: yellow;
+    transition: 0.7s;
+}
+
+.tab8 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.tab8:hover {
+    background-color: yellow;
+    transition: 0.7s;
+}
+
+.tab9 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: green;
+    padding: 5px 10px;
+}
+
+.info2 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+main {
+    background-color: grey;
+    border-radius: 5px;
+}

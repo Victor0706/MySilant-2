@@ -1,0 +1,41 @@
+
+
+{% block title %}
+Рекламации
+{% endblock title %}
+
+{% block content %}
+   
+
+   <hr>
+   {% if complaint %}
+       <table>
+           <tr>
+                <th>Дата отказа</th>
+                <th>Наработка</th>
+                <th>Узел отказа</th>
+                <th>Описание отказа</th>
+                <th>Способ восстановления</th>
+                <th>Используемые запасные части</th>
+                <th>Дата восстановления</th>
+                <th>Время простоя техники</th>
+                <th>Машина</th>
+               <th>Сервисная компания</th>
+           </tr>
+           <tr>
+              <td>{{ complaint.date_of_refusal }}</td>
+               <td>{{ complaint.development }}</td> 
+               <td>{{ complaint.failure_node }}</td>
+               <td>{{ complaint.description_of_failure }}</td>
+               <td>{{ complaint.recovery_method }}</td>
+               <td>{{ complaint.used_spare_parts }}</td>
+               <td>{{ complaint.date_of_restoration }}</td>
+               <td>{{ complaint.machine_downtime }}</td>
+               <td>{{ complaint.machine }}</td>
+               <td>{{ complaint.service_company }}</td>
+           </tr>
+       </table>
+   {% else %}
+       <h2>Рекламаций нет!</h2>
+   {% endif %}
+{% endblock content %}

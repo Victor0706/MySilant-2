@@ -1,0 +1,50 @@
+.home {
+    font-size: 10pt;
+    text-align: center;
+    margin-left: 180px;
+}
+
+table.home th, table.home td {
+    border: black thin solid;
+    
+}
+
+.info4 {
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+
+.result {
+    text-align: center;
+}
+
+.form {
+    margin-left: 100px;
+    margin-bottom: 40px;
+}
+
+.input {
+    border-radius: 3px;
+    margin-right: 30px;
+}
+
+.tab {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.info2 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+main {
+    background-color: grey;
+    border-radius: 5px;
+}

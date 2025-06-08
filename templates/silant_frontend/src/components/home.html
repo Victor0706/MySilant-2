@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    @font-face {src: url ('./fonts/PT-Astra-Sans_Bold.ttf'); font-family: 'Sans_Bold';}
+    @font-face {src: url ('../fonts/PT-Astra-Sans_Italic.ttf'); font-family: 'Sans_Italic';}
+
+    .header { height: 150px; padding: 5px 100px; background-color: #D20A11; border-radius: 5px; }
+    .header2 { display: flex; justify-content: space-between; align-items: center;}
+    .img { height: 100px; width: 100px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; font-family: 'Sans_Ialic'}
+    .btn { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .book { display: flex; justify-content: space-between; align-items: center; }
+    .book1 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; font-family: 'Sans_Ialic'}
+
+    .machines{ font-size: 10pt; text-align: center; margin-left: 250px;}
+    table.machines th, table.machines td { border: black thin solid; }
+    .tab { background-color: white; border-radius: 5px; }
+    .info4 { margin-left: 100px; margin-bottom: 50px; }
+    .result { text-align: center; }
+    .form { margin-left: 100px; margin-bottom: 40px; }
+    .input { border-radius: 3px; margin-right: 30px; }
+    .info2 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px;
+    text-align: center; font-size: 20px; font-family: 'Sans_Ialic'}
+    main { background-color: #163E6C; border-radius: 5px; }
+
+    .footer { display: flex; justify-content: space-between; align-items: center; height: 100px; margin-top: 20px; padding: 0 100px; background-color: #EBE6D6;
+    border-radius: 5px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .silant { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    @media (max-height: 910px) {.footer{ height: 60px;} .info2{height: 70px; font-size: 15px; 
+    padding-right: 0px;} .info4{height: 50px,} .img{height: 70px; width: 70px; } .header{height:110px}}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машины</title>
+</head>
+<body>
+    <div>
+        <header>
+            <div class='header'>
+                <div class='header2'> 
+                  <img class='img' src="https://static.tildacdn.com/tild3665-3566-4466-b331-303564336361/Frame_12.png"></img>  
+                  <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                  <form action="http://127.0.0.1:8000/accounts/login/">
+                    <button class='btn'>авторизация</button>
+                  </form>
+                </div>
+                <div class='book'>
+                  <p class='book1'>Электронная сервисная книжка "Мой Силант"</p>
+                </div>
+            </div>
+        </header>
+        <main>
+        <div class='info4'>
+            <p>Проверьте комплектацию и технические характеристики</p>
+            <p>техники Силант</p>
+        </div>
+            <form action="" method="get">
+                {{ filterset.form.as_p }}
+                <input type="submit" value="Поиск" />
+            </form>
+        <div class='info2'>
+          <p>Информация о комплектации и технических</p>
+          <p>характеристиках Вашей техники</p>
+        </div>
+        <div class='tab'>
+        <p class='result'>Таблица с данными (выдача результата)</p>
+        {% if machines %}
+        <table class='machines'>
+          <thead>
+          <tr> 
+            <th>Зав. № машины</th>
+            <th>Модель техники</th>
+            <th>Модель двигателя</th>
+            <th>Зав. № двигателя</th>
+            <th>Модель трансмиссии</th>
+            <th>Зав. № трансмиссии</th>
+            <th>Модель ведущего моста</th>
+            <th>Зав. № ведущего моста</th>
+            <th>Модель управляемого моста</th>
+            <th>Зав. № управляемого моста</th>
+          </tr>
+          </thead>
+          {% for machine in machines %}
+          <tbody>
+          <tr> 
+            <td>{{ machine.machine_number }}</td>
+            <td>{{ machine.model_of_equipment }}</td>  
+            <td>{{ machine.engine_model }}</td>
+            <td>{{ machine.engine_number }}</td>
+            <td>{{ machine.transmission_model }}</td>
+            <td>{{ machine.transmission_number }}</td>
+            <td>{{ machine.model_of_driving_axle }}</td>
+            <td>{{ machine.drive_axle_number }}</td>
+            <td>{{ machine.model_of_controlled_bridge }}</td>
+            <td>{{ machine.controlled_bridge_number }}</td>
+          </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        {% else %}
+       <h2>Машин нет!</h2>
+       {% endif %}
+        </div>
+        </main>
+        <footer>
+            <div class='footer'>
+                <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                <p class='silant'>Мой Силант 2022</p>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>
+
+
+      
+
+
+
+
+
+
+
+     
+       

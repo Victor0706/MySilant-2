@@ -1,0 +1,9 @@
+{% block content %}
+<h1>Удаление ТО</h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Удаляем "{{ object.type_of_maintenance }}"?</p>
+    <input type="submit" value="Delete" />
+</form>
+{% endblock content %}

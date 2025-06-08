@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    margin-top: 20px;
+    padding: 0 100px;
+    background-color: grey;
+    border-radius: 5px;
+
+}
+
+.telephone {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.silant {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}

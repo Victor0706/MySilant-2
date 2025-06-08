@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .header { height: 150px; padding: 5px 100px; background-color: #D20A11; border-radius: 5px; }
+    .header2 { display: flex; justify-content: space-between; align-items: center; }
+    .img { height: 100px; width: 100px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .btn { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .book { display: flex; justify-content: space-between; align-items: center; }
+    .book1 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    .maintenances{ font-size: 10pt; text-align: center; margin-left: 400px; }
+    table.maintenances th, table.maintenances td { border: black thin solid; }
+    .client { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px; }
+    .result { text-align: center; }
+    .info { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 40px; padding-left: 100px; padding-right: 100px; }
+    .tab { background-color: white; border-radius: 5px; }
+    .tab4 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .tab4:hover { background-color: yellow; transition: 0.7s; }
+    .tab5 { border: black thin solid; border-radius: 5px; background-color: green; padding: 5px 10px; }
+    .tab6 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .tab6:hover { background-color: yellow; transition: 0.7s; }
+    .info2 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px;
+    text-align: center; font-size: 20px; }
+    main { background-color: #163E6C; border-radius: 5px; }
+
+    .footer { display: flex; justify-content: space-between; align-items: center; height: 100px; margin-top: 20px; padding: 0 100px; background-color: #EBE6D6;
+    border-radius: 5px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .silant { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    .popup8 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content8 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup8:target { display: flex; }
+
+    .popup9 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content9 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup9:target { display: flex; }
+
+    .popup10 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content10 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup10:target { display: flex; }
+
+    .popup11 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content11 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup11:target { display: flex; }
+
+    @media (max-height: 910px) {.footer{ height: 60px;} .info2{height: 70px; font-size: 15px; 
+    padding-right: 0px;} .img{height: 70px; width: 70px; } .header{height:110px}}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машины</title>
+</head>
+<body>
+    <div>
+        <header>
+            <div class='header'>
+                <div class='header2'> 
+                  <img class='img' src="https://static.tildacdn.com/tild3665-3566-4466-b331-303564336361/Frame_12.png"></img>  
+                  <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                  <form action="http://127.0.0.1:8000/accounts/logout/">
+                    <button class='btn'>Выйти</button>
+                  </form>
+                </div>
+                <div class='book'>
+                  <p class='book1'>Электронная сервисная книжка "Мой Силант"</p>
+                </div>
+            </div>
+        </header>
+        <main>
+        <h1 class='client'>Клиент/Сервисная компания: {{ user.username }}</h1>
+        <div class='info2'>
+          <p>Информация о проведенных ТО Вашей техники</p>
+        </div>
+        <div class='tab'>
+        <p class='result'>Таблица с данными (выдача результата)</p>
+        <div class='info'>
+          <form action="http://127.0.0.1:8000/api/machines">
+            <button class='tab4'>Таблица: общая информация о машинах</button> 
+          </form>
+          <button class='tab5'>Таблица: техническое обслуживание</button>
+          <form action="http://127.0.0.1:8000/api/complaints">
+            <button class='tab6'>Таблица: рекламации</button>
+          </form>
+        </div>
+        <form action="" method="get">
+          {{ filterset.form.as_p }}
+          <input type="submit" value="Найти" />
+        </form>
+        {% if maintenances %}
+        <table class='maintenances'>
+          <thead>
+          <tr> 
+            <th>Вид ТО</th>
+            <th>Дата проведения ТО</th>
+            <th>Наработка</th>
+            <th>№ заказ-наряда</th>
+            <th>Дата заказ-наряда</th>
+            <th>Организация, проводившая ТО</th>
+            <th>Зав. № машины</th>
+            <th>Сервисная компания</th>
+          </tr>
+          </thead>
+          {% for maintenance in maintenances %}
+          <tbody>
+          <tr> 
+            <td><a href="#popup8">{{ maintenance.type_of_maintenance }}</a>
+              <div id="popup8" class="popup8">
+                <div class="popup-content8">
+                  <table>
+                    <tr>
+                      <th>ТО-0 (50 м/час)</th>
+                      <th>ТО-1 (200 м/час)</th>
+                      <th>ТО-2 (400 м/час)</th>
+                      <th>ТО-4 (1000м/час)</th>
+                      <th>ТО-5 (2000м/час)</th>
+                    </tr>
+                    <tr>
+                      <td>Проводят после обкатки новой спецтехники, после первых 50 моточасов работы.</td>
+                      <td>Первичное периодическое техническое обслуживание , которое проводится каждые 200 моточасов работы.</td>
+                      <td>Второе техническое обслуживание: ТО-1 плюс дополнительный мероприятия.</td>
+                      <td>Плановое техническое обслуживание спецтехники с интервалом в 1000 моточасов.</td>
+                      <td>После 2000 моточасов работы.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ maintenance.date_of_maintenance }}</td> 
+            <td>{{ maintenance.development }}</td>
+            <td>{{ maintenance.work_order_number }}</td>
+            <td>{{ maintenance.work_order_date }}</td>
+            <td><a href="#popup9">{{ maintenance.organization_maintenance }}</a>
+              <div id="popup9" class="popup9">
+                <div class="popup-content9">
+                  <table>
+                    <tr>
+                      <th>ООО Промышленная техника</th>
+                      <th>ООО Силант</th>
+                      <th>ООО ФНС</th>
+                      <th>Самостоятельно</th>
+                    </tr>
+                    <tr>
+                      <td>Является официальным дилером по продаже и сервисному обслуживанию</td>
+                      <td>СИЛАНТ — российский бренд надежной техники Чебоксарского завода силовых агрегатов.</td>
+                      <td>Хороший сервис - наш доход.</td>
+                      <td>Клиент сам проводит ТО.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td><a href="#popup10">{{ maintenance.machine }}</a>
+              <div id="popup10" class="popup10">
+                <div class="popup-content10">
+                  <table>
+                    <tr>
+                      <th>0017</th>
+                      <th>0021</th>
+                      <th>0027</th>
+                      <th>0032</th>
+                      <th>0003</th>
+                      <th>0016</th>
+                      <th>0039</th>
+                      <th>0045</th>
+                      <th>0019</th>
+                      <th>0008</th>
+                    </tr>
+                    <tr>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td><a href="#popup11">{{ maintenance.service_company }}</a>
+              <div id="popup11" class="popup11">
+                <div class="popup-content11">
+                  <table>
+                    <tr>
+                      <th>ООО Промышленная техника</th>
+                      <th>ООО Силант</th>
+                      <th>ООО ФНС</th>
+                    </tr>
+                    <tr>
+                      <td>Является официальным дилером по продаже и сервисному обслуживанию</td>
+                      <td>СИЛАНТ — российский бренд надежной техники Чебоксарского завода силовых агрегатов.</td>
+                      <td>Хороший сервис - наш доход.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="{% url 'maintenance_update' id=maintenance.id %}"><u><button type="submit"
+                  class="btn btn-primary">Редактировать информацию</button> </u></a>
+            </td>
+            <td>
+              <a href="{% url 'maintenance_delete' id=maintenance.id %}"><u><button type="submit"
+                  class="btn btn-primary">Удалить информацию</button> </u></a>
+            </td>
+          </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        {% else %}
+       <h2>ТО нет!</h2>
+       {% endif %}
+       <a href="{% url 'maintenance_create' %}"><u><button type="submit" class="btn btn-primary">Добавить новое ТО</button> </u></a>
+        </div>
+        </main>
+        <footer>
+            <div class='footer'>
+                <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                <p class='silant'>Мой Силант 2022</p>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>
+
+
+      
+
+
+
+
+
+
+
+     
+       
+
+
+
+
+
+
+
+
+
+           

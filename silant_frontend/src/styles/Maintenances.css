@@ -1,0 +1,85 @@
+.maintenances {
+    font-size: 10pt;
+    text-align: center;
+    margin-left: 400px;
+}
+
+table.maintenances th, table.maintenances td {
+    border: black thin solid;
+    
+}
+
+.client {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.result {
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.tab {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.tab4 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.tab4:hover {
+    background-color: yellow;
+    transition: 0.7s;
+}
+
+.tab5 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: green;
+    padding: 5px 10px;
+}
+
+.tab6 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.tab6:hover {
+    background-color: yellow;
+    transition: 0.7s;
+}
+
+.info2 {
+    border: black thin solid;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+main {
+    background-color: grey;
+    border-radius: 5px;
+}

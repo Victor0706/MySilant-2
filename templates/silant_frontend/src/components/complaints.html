@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .header { height: 150px; padding: 5px 100px; background-color: #D20A11; border-radius: 5px; }
+    .header2 { display: flex; justify-content: space-between; align-items: center; }
+    .img { height: 100px; width: 100px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .btn { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .book { display: flex; justify-content: space-between; align-items: center; }
+    .book1 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    .complaints{ font-size: 10pt; text-align: center; margin-left: 230px; }
+    table.complaints th, table.complaints td { border: black thin solid; }
+    .client { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px; }
+    .result { text-align: center; }
+    .info { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 40px; padding-left: 100px; padding-right: 100px; }
+    .tab { background-color: white; border-radius: 5px; }
+    .tab7 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .tab7:hover { background-color: yellow; transition: 0.7s; }
+    .tab8 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .tab8:hover { background-color: yellow; transition: 0.7s; }
+    .tab9 { border: black thin solid; border-radius: 5px; background-color: green; padding: 5px 10px; }
+    .info2 { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; margin-left: 100px; margin-right: 100px;
+    text-align: center; font-size: 20px; }
+    main { background-color: #163E6C; border-radius: 5px; }
+
+    .footer { display: flex; justify-content: space-between; align-items: center; height: 100px; margin-top: 20px; padding: 0 100px; background-color: #EBE6D6;
+    border-radius: 5px; }
+    .telephone { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+    .silant { border: black thin solid; border-radius: 5px; background-color: white; padding: 5px 10px; }
+
+    .popup12 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content12 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup12:target { display: flex; }
+
+    .popup13 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content13 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup13:target { display: flex; }
+
+    .popup14 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content14 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup14:target { display: flex; }
+
+    .popup15 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center;
+    align-items: center; }
+    .popup-content15 { background: #fff; padding: 20px; border-radius: 5px; text-align: center; }
+    .popup15:target { display: flex; }
+
+    @media (max-height: 910px) {.footer{ height: 60px;} .info2{height: 70px; font-size: 15px; 
+    padding-right: 0px;} .img{height: 70px; width: 70px; } .header{height:110px}}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машины</title>
+</head>
+<body>
+    <div>
+        <header>
+            <div class='header'>
+                <div class='header2'> 
+                  <img class='img' src="https://static.tildacdn.com/tild3665-3566-4466-b331-303564336361/Frame_12.png"></img>  
+                  <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                  <form action="http://127.0.0.1:8000/accounts/logout/">
+                    <button class='btn'>Выйти</button>
+                  </form>
+                </div>
+                <div class='book'>
+                  <p class='book1'>Электронная сервисная книжка "Мой Силант"</p>
+                </div>
+            </div>
+        </header>
+        <main>
+        <h1 class='client'>Клиент/Сервисная компания: {{ user.username }}</h1>
+        <div class='info2'>
+          <p>Информация о рекламациях Вашей техники</p>
+        </div>
+        <div class='tab'>
+        <p class='result'>Таблица с данными (выдача результата)</p>
+        <div class='info'>
+          <form action="http://127.0.0.1:8000/api/machines">
+            <button class='tab7'>Таблица: общая информация о машинах</button> 
+          </form>
+          <form action="http://127.0.0.1:8000/api/maintenances">
+            <button class='tab8'>Таблица: техническое обслуживание</button>
+          </form>
+          <button class='tab9'>Таблица: рекламации</button>
+        </div>
+        <form action="" method="get">
+          {{ filterset.form.as_p }}
+          <input type="submit" value="Найти" />
+        </form>
+        {% if complaints %}
+        <table class='complaints'>
+          <thead>
+          <tr> 
+            <th>Дата отказа</th>
+            <th>Наработка</th>
+            <th>Узел отказа</th>
+            <th>Описание отказа</th>
+            <th>Способ восстановления</th>
+            <th>Используемые запасные части</th>
+            <th>Дата восстановления</th>
+            <th>Время простоя техники</th>
+            <th>Машина</th>
+            <th>Сервисная компания</th>
+          </tr>
+          </thead>
+          {% for complaint in complaints %}
+          <tbody>
+          <tr> 
+            <td>{{ complaint.date_of_refusal }}</td>
+            <td>{{ complaint.development }}</td> 
+            <td><a href="#popup12">{{ complaint.failure_node }}</a>
+              <div id="popup12" class="popup12">
+                <div class="popup-content12">
+                  <table>
+                    <tr>
+                      <th>Двигатель</th>
+                      <th>Трансмиссия</th>
+                      <th>Ведущий мост</th>
+                      <th>Управляемый мост</th>
+                      <th>Подъёмное устройство</th>
+                      <th>Гидросистема</th>
+                    </tr>
+                    <tr>
+                      <td>Повышенный шум, течь масла или не заводится.</td>
+                      <td>Проскальзывание или блокировка колес.</td>
+                      <td>Блокировка колес </td>
+                      <td>Разрушение подшипника.</td>
+                      <td>Разрушение верхнего ролика</td>
+                      <td>Течь масла</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ complaint.description_of_failure }}</td>
+            <td><a href="#popup13">{{ complaint.recovery_method }}</a>
+              <div id="popup13" class="popup13">
+                <div class="popup-content13">
+                  <table>
+                    <tr>
+                      <th>Ремонт узла</th>
+                      <th>Замена узла</th>
+                    </tr>
+                    <tr>
+                      <td>Используются различные материалы.</td>
+                      <td>Устанавливается новый узел.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>{{ complaint.used_spare_parts }}</td>
+            <td>{{ complaint.date_of_restoration }}</td>
+            <td>{{ complaint.machine_downtime }}</td>
+            <td><a href="#popup14">{{ complaint.machine }}</a>
+              <div id="popup14" class="popup14">
+                <div class="popup-content14">
+                  <table>
+                    <tr>
+                      <th>0017</th>
+                      <th>0021</th>
+                      <th>0027</th>
+                      <th>0032</th>
+                      <th>0003</th>
+                      <th>0016</th>
+                      <th>0039</th>
+                      <th>0045</th>
+                      <th>0019</th>
+                      <th>0008</th>
+                    </tr>
+                    <tr>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                      <td>Подробнее на вкладке - общая информация о машинах.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td><a href="#popup15">{{ complaint.service_company }}</a>
+              <div id="popup15" class="popup15">
+                <div class="popup-content15">
+                  <table>
+                    <tr>
+                      <th>ООО Промышленная техника</th>
+                      <th>ООО Силант</th>
+                      <th>ООО ФНС</th>
+                    </tr>
+                    <tr>
+                      <td>Является официальным дилером по продаже и сервисному обслуживанию</td>
+                      <td>СИЛАНТ — российский бренд надежной техники Чебоксарского завода силовых агрегатов.</td>
+                      <td>Хороший сервис - наш доход.</td>
+                    </tr>
+                  </table>
+                  <a href="#">Закрыть</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="{% url 'complaint_update' id=complaint.id %}"><u><button type="submit"
+                  class="btn btn-primary">Редактировать информацию</button> </u></a>
+            </td>
+            <td>
+              <a href="{% url 'complaint_delete' id=complaint.id %}"><u><button type="submit"
+                  class="btn btn-primary">Удалить информацию</button> </u></a>
+            </td>
+          </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        {% else %}
+       <h2>Рекламаций нет!</h2>
+       {% endif %}
+       <a href="{% url 'complaint_create' %}"><u><button type="submit" class="btn btn-primary">Добавить новую рекламацию</button> </u></a>
+        </div>
+        </main>
+        <footer>
+            <div class='footer'>
+                <p class='telephone'>+7-8352-20-12-09, telegram - https://t.me</p>
+                <p class='silant'>Мой Силант 2022</p>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>
+
+
+      
+
+
+   
